@@ -1,0 +1,1 @@
+fetch('https://ghibliapi.herokuapp.com')
