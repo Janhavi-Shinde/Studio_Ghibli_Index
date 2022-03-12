@@ -11,18 +11,30 @@
 <body>
     <header>
         <h1>Studio Ghibli Movies Index</h1>
-    </header>
-    <main>
-        <div id="films">
-<select>
-    <option>Choose a Film!</option>
-    <option>Kiki's Delivery Service</option>
-    <option>Spirited Away</option>
-    <option>Howl's Moving Castle</option>
-</select>
+        <div id= "logo" >
+            <img src="https://raw.githubusercontent.com/taniarascia/sandbox/master/ghibli/logo.png"/>
 
         </div>
-        
+    </header>
+    <main>
+        <div class="container-for-searchBar">
+            <div id="searchWrapper">
+            <input
+                type="text"
+                name="searchBar"
+                id="searchBar"
+                placeholder="Search for a film title or movies by a certain director!"
+            />
+        </div>
+        <ul id="film-list"></ul>
+
+        <!-- YOU CAN IGNORE THIS PART -->
+        <div id="wrapper">
+            <div id="films">
+        </div>
+        <!-- ........................ -->
+
+            
     </main>
     <footer>&copy Janhavi Shinde 2022</footer>
 </body>
