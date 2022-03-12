@@ -2,6 +2,7 @@ const films = document.getElementById("films")
 const filmList = document.getElementById('film-list');
 const logo = document.getElementById('logo');
 const searchBar = document.getElementById('searchBar');
+const filmPoster = document.getElementsByClassName('filmPoster');
 
 let state;
 // let filmNames;
@@ -53,6 +54,16 @@ const searchResultFilms = (films) => {
         .join(''); // why did we do this? ?Because .map returns a new array, with the commas and spaces. (doubleCheck alberts vid - sample project- to see exmaple and his explanation) 
         filmList.innerHTML = htmlString;
 };
+
+function onClick (info) {
+    alert(`Description: ${info}`)  // put description in h4 tag?
+}
+
+
+// CALLBACK func in <img:     => alert(<p>Description: ${films.description}</p>)
+// (e) => { 
+//     alert(`<p>${films.description}</p>`)}
+
 
 searchBar.addEventListener("keydown", (e) => {
     // console.log(e.target.value);
