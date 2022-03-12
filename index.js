@@ -6,6 +6,7 @@ const filmPoster = document.getElementsByClassName('filmPoster');
 
 let state;
 // let filmNames;
+
 async function fetchAPIdata() {
     try {
         const response = await fetch("https://ghibliapi.herokuapp.com/films")
@@ -15,12 +16,20 @@ async function fetchAPIdata() {
         //  films.innerHTML = renderFilms().join(" ");
         boxedFilms();
         searchResultFilms(state);
-        
+        retrievingBanners(state);
     } catch (error) {
         console.error(error)  //understand what .error means here
     }
 }
 fetchAPIdata();  //Read IIFE. can you swap this with an IIFE??
+
+// function renderFilms () {
+//     console.log("Rendered Films: ", state)
+//     return state.map((film) => {
+//             return `<div class= box>
+//             <h2 class=title> ${film.title} </h2>`
+//           })}
+
 
 function boxedFilms () { 
     state.forEach(movie => {
@@ -55,6 +64,8 @@ const searchResultFilms = (films) => {
         filmList.innerHTML = htmlString;
 };
 
+// filmPoster.addEventListener("click", onclick);    IF I UNCOMMENT THIS, THE SEARCH FUNCTION WILL NOT WORK
+
 function onClick (info) {
     alert(`Description: ${info}`)  // put description in h4 tag?
 }
@@ -63,8 +74,6 @@ function onClick (info) {
 // CALLBACK func in <img:     => alert(<p>Description: ${films.description}</p>)
 // (e) => { 
 //     alert(`<p>${films.description}</p>`)}
-
-
 searchBar.addEventListener("keydown", (e) => {
     // console.log(e.target.value);
     const searchString = e.target.value.toLowerCase();
@@ -77,3 +86,21 @@ searchBar.addEventListener("keydown", (e) => {
     searchResultFilms(filteredTitles);
 });
 
+
+const retrievingBanners = (picture) => {
+        const filmBanners = picture.map((picture) =>{
+                return picture.movie_banner;
+        })
+        console.log(filmBanners);
+}
+
+
+
+
+
+
+        
+    
+
+
+  
