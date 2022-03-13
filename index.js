@@ -108,7 +108,7 @@ const bannerArrayFunction = (picture) => {
         .map((picture) => {
             return`
             <li class="banner-list">
-                <img class="bannerImage" src="${picture.movie_banner}" alt="${picture.title}"/>     
+                <img src="${picture.movie_banner}" alt="${picture.title}"/>     
             </li>`;
     })
         .join(''); 
