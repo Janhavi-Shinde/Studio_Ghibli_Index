@@ -3,6 +3,8 @@ const filmList = document.getElementById('film-list');
 const logo = document.getElementById('logo');
 const searchBar = document.getElementById('searchBar');
 const filmPoster = document.getElementsByClassName('filmPoster');
+const buttons = document.getElementsByClassName('carousel-button');
+const bannerList = document.getElementsByTagName('bannerList');
 
 let state;
 // let filmNames;
@@ -16,7 +18,10 @@ async function fetchAPIdata() {
         //  films.innerHTML = renderFilms().join(" ");
         boxedFilms();
         searchResultFilms(state);
-        retrievingBanners(state);
+        bannerArrayFunction(state);
+                                // ?unnecessary// 
+                                retrievingBanners(state);
+                                // ?unnecessary// 
     } catch (error) {
         console.error(error)  //understand what .error means here
     }
@@ -29,6 +34,16 @@ fetchAPIdata();  //Read IIFE. can you swap this with an IIFE??
 //             return `<div class= box>
 //             <h2 class=title> ${film.title} </h2>`
 //           })}
+
+
+// buttons.forEach(button => {
+//     button.addEventListener("click", ()=>{
+//         //all u want to do here is just swap to the next image
+//         const offset = 
+//     })
+// })
+
+
 
 
 function boxedFilms () { 
@@ -57,7 +72,7 @@ const searchResultFilms = (films) => {
             <li class ="films-list">
                 	<h2>${films.title}</h2>
                     <h4>Directed by ${films.director}</h4> 
-                    <img class="filmPoster" src="${films.image}" onclick= "onClick('${films.description}')"> </img>
+                    <img class="filmPoster" src="${films.image}" onclick= "onClick('${films.description}')"/> 
             </li>`;
         })
         .join(''); // why did we do this? ?Because .map returns a new array, with the commas and spaces. (doubleCheck alberts vid - sample project- to see exmaple and his explanation) 
@@ -74,6 +89,8 @@ function onClick (info) {
 // CALLBACK func in <img:     => alert(<p>Description: ${films.description}</p>)
 // (e) => { 
 //     alert(`<p>${films.description}</p>`)}
+
+
 searchBar.addEventListener("keydown", (e) => {
     // console.log(e.target.value);
     const searchString = e.target.value.toLowerCase();
@@ -86,13 +103,36 @@ searchBar.addEventListener("keydown", (e) => {
     searchResultFilms(filteredTitles);
 });
 
+const bannerArrayFunction = (picture) => {
+    const listOfBannerImages = picture
+        .map((picture) => {
+            return`
+            <li class="banner-list">
+                <img class="bannerImage" src="${picture.movie_banner}" alt="${picture.title}"/>     
+            </li>`;
+    })
+        .join(''); 
+        bannerList.innerHTML = listOfBannerImages;
+    //consider adding a after/before pseudoElement to have the name of the respective movie, showing up in the corner?//
+            console.log(listOfBannerImages)
+        }; //listOfBannerImages contains the (joined)array of banner images in the list tags
 
-const retrievingBanners = (picture) => {
-        const filmBanners = picture.map((picture) =>{
-                return picture.movie_banner;
-        })
-        console.log(filmBanners);
-}
+
+
+
+
+                        // ?unnecessary// 
+                        const retrievingBanners = (picture) => {
+                                const filmBanners = picture.map((picture) =>{
+                                        return picture.movie_banner;
+                                })
+                                // console.log(filmBanners);
+                        }
+                        // ?unnecessary// 
+
+
+
+    
 
 
 
