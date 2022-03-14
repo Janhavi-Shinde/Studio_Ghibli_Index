@@ -8,6 +8,7 @@ const bannerList = document.getElementsByTagName('bannerList');
 const overlay = document.getElementsByClassName('overlay');
 const showModalBtn = document.getElementsByClassName('showModalBtn');
 const closeModalBtn = document.getElementsByClassName('closeModalBtn');
+const descriptionParagraph = document.getElementsByClassName('descriptionParagraph');
 
 let state;
 // let filmNames;
@@ -79,8 +80,8 @@ const searchResultFilms = (films) => {
             <li class ="films-list">
                 	<h2>${films.title}</h2>
                     <h4>Directed by ${films.director}</h4> 
-                    <img class="filmPoster" src="${films.image}" onclick= "onClick('${films.description}')"/>
-                    <button class="showModalBtn"> Description </button>
+                    <img class="filmPoster" src="${films.image}" />
+                    <button class="showModalBtn" onclick= "onClick('${films.description}')"> Description </button>
                             
             </li>`;
         })
@@ -91,23 +92,26 @@ const searchResultFilms = (films) => {
 
 // MODAL
 
+function onClick (info) {
+    // alert(info);  // now instead of an alert, we want it to open the modal
+    overlay.style.display = "block";
+    descriptionParagraph.innerHTML = info; 
+}
+
+
 for (const button of showModalBtn) {    //because since showModalBtn is a class, it returns HTMLcollection which is array
     button.addEventListener("click", (e)=> {
         console.log(e.target.value);
         for (const overlay of overlay) { overlay.style.display = "block"};
     })}
-            
-    //         <div class="overlay">
-    //             <div class="modal">
-    //                 <p class="descriptionParagraph"> Respective Movie Description</p>
-    //                 <button class="closeModalBtn">Close Modal</button>
-    //             </div>
-    //         </div>
-    //      `
-    //     })    }
-
- 
-    
+                        //FOR REFERENCE ONLY:
+            // <div class="overlay">
+            //     <div class="modal">
+            //         <p class="descriptionParagraph"> Respective Movie Description</p>
+            //         <button class="closeModalBtn">Close Modal</button>
+            //     </div>
+            // </div>
+     
 
 for (const button of closeModalBtn) { 
     button.addEventListener("click", (e)=> {
@@ -117,19 +121,13 @@ for (const button of closeModalBtn) {
 
 // filmPoster.addEventListener("click", onclick);    IF I UNCOMMENT THIS, THE SEARCH FUNCTION WILL NOT WORK
 
-// function modalOnClick () => {
-
-// }
 
 
-function onClick (info) {
-    alert(`Description: ${info}`)  // put description in h4 tag?
-}
 
 
-// CALLBACK func in <img:     => alert(<p>Description: ${films.description}</p>)
-// (e) => { 
-//     alert(`<p>${films.description}</p>`)}
+
+
+
 
 
 
