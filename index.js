@@ -5,53 +5,43 @@ const searchBar = document.getElementById('searchBar');
 const filmPoster = document.getElementsByClassName('filmPoster');
 const buttons = document.getElementsByClassName('carousel-button');
 const bannerList = document.getElementsByTagName('bannerList');
+const overlay = document.getElementsByClassName('overlay');
+const showModalBtn = document.getElementsByClassName('showModalBtn');
+const closeModalBtn = document.getElementsByClassName('closeModalBtn');
 
 let state;
 // let filmNames;
 
+
+//FETCHING API DATA
 async function fetchAPIdata() {
     try {
         const response = await fetch("https://ghibliapi.herokuapp.com/films")
         const data = await response.json();
         state = data 
-        //  filmNames = state.title 
-        //  films.innerHTML = renderFilms().join(" ");
+        
         boxedFilms();
         searchResultFilms(state);
-        bannerArrayFunction(state);
+        // bannerArrayFunction(state);
                                 // ?unnecessary// 
-                                retrievingBanners(state);
+                                    	        // retrievingBanners(state);
                                 // ?unnecessary// 
     } catch (error) {
-        console.error(error)  //understand what .error means here
+        console.error(error)  
     }
 }
-fetchAPIdata();  //Read IIFE. can you swap this with an IIFE??
-
-// function renderFilms () {
-//     console.log("Rendered Films: ", state)
-//     return state.map((film) => {
-//             return `<div class= box>
-//             <h2 class=title> ${film.title} </h2>`
-//           })}
-
-
-// buttons.forEach(button => {
-//     button.addEventListener("click", ()=>{
-//         //all u want to do here is just swap to the next image
-//         const offset = 
-//     })
-// })
+fetchAPIdata();  
 
 
 
 
+// FILMS + THEIR DESCRIPTIONS
 function boxedFilms () { 
     state.forEach(movie => {
-                 // Here we are creating a div for each film, and giving it a class of block
+    
     const box = document.createElement('div') 
     box.setAttribute('class', 'box' ) 
-                        //Here we give each block a title with the film's name
+                    
     const h2 = document.createElement('h2')
     h2.innerHTML = movie.title
 
@@ -65,32 +55,9 @@ function boxedFilms () {
     films.appendChild(box)
 }) } 
 
-const searchResultFilms = (films) => {
-    const htmlString = films
-        .map((films) => {
-            return ` 
-            <li class ="films-list">
-                	<h2>${films.title}</h2>
-                    <h4>Directed by ${films.director}</h4> 
-                    <img class="filmPoster" src="${films.image}" onclick= "onClick('${films.description}')"/> 
-            </li>`;
-        })
-        .join(''); // why did we do this? ?Because .map returns a new array, with the commas and spaces. (doubleCheck alberts vid - sample project- to see exmaple and his explanation) 
-        filmList.innerHTML = htmlString;
-};
+// SEARCH BAR: 
 
-// filmPoster.addEventListener("click", onclick);    IF I UNCOMMENT THIS, THE SEARCH FUNCTION WILL NOT WORK
-
-function onClick (info) {
-    alert(`Description: ${info}`)  // put description in h4 tag?
-}
-
-
-// CALLBACK func in <img:     => alert(<p>Description: ${films.description}</p>)
-// (e) => { 
-//     alert(`<p>${films.description}</p>`)}
-
-
+            // EVENT LISTENER
 searchBar.addEventListener("keydown", (e) => {
     // console.log(e.target.value);
     const searchString = e.target.value.toLowerCase();
@@ -103,6 +70,97 @@ searchBar.addEventListener("keydown", (e) => {
     searchResultFilms(filteredTitles);
 });
 
+
+            // DISPLAY OF FILMS RETURNED FROM THE SEARCH
+const searchResultFilms = (films) => {
+    const htmlString = films
+        .map((films) => {
+            return ` 
+            <li class ="films-list">
+                	<h2>${films.title}</h2>
+                    <h4>Directed by ${films.director}</h4> 
+                    <img class="filmPoster" src="${films.image}" onclick= "onClick('${films.description}')"/>
+                    <button class="showModalBtn"> Description </button>
+                            
+            </li>`;
+        })
+        .join(''); 
+       filmList.innerHTML = htmlString;
+};
+
+
+// MODAL
+
+for (const button of showModalBtn) {    //because since showModalBtn is a class, it returns HTMLcollection which is array
+    button.addEventListener("click", (e)=> {
+        console.log(e.target.value);
+        for (const overlay of overlay) { overlay.style.display = "block"};
+    })}
+            
+    //         <div class="overlay">
+    //             <div class="modal">
+    //                 <p class="descriptionParagraph"> Respective Movie Description</p>
+    //                 <button class="closeModalBtn">Close Modal</button>
+    //             </div>
+    //         </div>
+    //      `
+    //     })    }
+
+ 
+    
+
+for (const button of closeModalBtn) { 
+    button.addEventListener("click", (e)=> {
+    console.log(e.target.value);
+    overlay.style.display = "none";
+})}
+
+// filmPoster.addEventListener("click", onclick);    IF I UNCOMMENT THIS, THE SEARCH FUNCTION WILL NOT WORK
+
+// function modalOnClick () => {
+
+// }
+
+
+function onClick (info) {
+    alert(`Description: ${info}`)  // put description in h4 tag?
+}
+
+
+// CALLBACK func in <img:     => alert(<p>Description: ${films.description}</p>)
+// (e) => { 
+//     alert(`<p>${films.description}</p>`)}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// buttons.forEach(button => {
+//     button.addEventListener("click", ()=>{
+//         //all u want to do here is just swap to the next image
+//         const offset = 
+//     })
+// })
 const bannerArrayFunction = (picture) => {
     const listOfBannerImages = picture
         .map((picture) => {
