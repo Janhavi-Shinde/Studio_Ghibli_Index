@@ -49,7 +49,7 @@ function boxedFilms () {
 
     const information = document.createElement('p')
     information.innerHTML = `${movie.description}`
-    movie.description = movie.description.substring(0,300)
+    
 
     box.appendChild(h2)
     box.appendChild(information)
@@ -92,77 +92,22 @@ const searchResultFilms = (films) => {
 
 // MODAL
 
-                            // FOR LOOP 
-
-// function forOnClick (info) {
-//     for (let i=0; i<showModalBtn.length; i++){
-//         showModalBtn[i].style.visibility = 'visible';
-//         descriptionParagraph.innerHTML = info;
-// }
-// }
-
-                            //FOR EACH LOOP
-
-// showModalBtn.forEach(button =>{
-//     button.addEventListener("click", onClick);
-//     })
-
-                            //FOR OF LOOP
-
-// // for (const button of showModalBtn) {    //because since showModalBtn is a class, it returns HTMLcollection which is array
-// //     button.addEventListener("click", (e)=> {
-// //         console.log(e.target.value);
-// showModalBtn.classList.toggle('hidden');
-// //         for (const overlay of overlay) { overlay.style.display = "block"};
-// //     })}
 
 
-
-
-// showModalBtn.addEventListener("click", onClick );
 function onClick (event) {
-    //    alert(info);  // now instead of an alert, we want it to open the modal
-    const target = event.target;
+        const target = event.target;
     overlay[0].classList.toggle('hidden');
     descriptionParagraph[0].innerHTML = target.value; 
 }
 
 
-//close modal feature (so that when you click anywhere on the page, it closes the modal)
 
-// closeModalBtn.addEventListener("click", ()=> { 
-//     overlay.style.visibility = "hidden";
-// })
 closeModalBtn[0].addEventListener("click", (e) => {
     console.log(e.target.value);
     overlay[0].classList.toggle('hidden');
 })
 
 
-
-// function onClick (info) {
-//     //    alert(info);  // now instead of an alert, we want it to open the modal
-//     showModalBtn.classList.toggle('hidden');
-//     descriptionParagraph.innerHTML = info;}
-
-
-
-                        //FOR REFERENCE ONLY:
-            // <div class="overlay">
-            //     <div class="modal">
-            //         <p class="descriptionParagraph"> Respective Movie Description</p>
-            //         <button class="closeModalBtn">Close Modal</button>
-            //     </div>
-            // </div>
-     
-
-// for (const button of closeModalBtn) { 
-//     button.addEventListener("click", (e)=> {
-//     console.log(e.target.value);
-//     overlay.style.display = "none";
-// })}
-
-// filmPoster.addEventListener("click", onclick);    IF I UNCOMMENT THIS, THE SEARCH FUNCTION WILL NOT WORK
 
 
 
