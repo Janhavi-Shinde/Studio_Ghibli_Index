@@ -10,6 +10,7 @@ const showModalBtn = document.getElementsByClassName('showModalBtn');
 const closeModalBtn = document.getElementsByClassName('closeModalBtn');
 const descriptionParagraph = document.getElementsByClassName('descriptionParagraph');
 const backToTop = document.querySelector('footer');
+const likedIcon = document.getElementsByClassName('.likedIcon');
 let state;
 // let filmNames;
 
@@ -81,21 +82,28 @@ const searchResultFilms = (films) => {
                 	<h2>${films.title}</h2>
                     <h4>Directed by ${films.director}</h4> 
                     <img class="filmPoster" src="${films.image}" />
-                    <button class="showModalBtn" onclick= "onClick(event)" value="${films.description}"> Description </button>
-                            
+                    <button class="showModalBtn" onclick="onClick(event)" value="${films.description}"> Description </button>                          
             </li>`;
         })
         .join(''); 
        filmList.innerHTML = htmlString;
 };
 
+//Like Icon
+// likedIcon.addEventListener("click", (e)=>{ 
+// console.log(e.target);
+// likedIcon[0].classList.toggle('hidden');}
+// )
+
+// <div class="Icon"> <img id="likeIcon" src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Love_or_Heart_transparent.png" alt= "likeIcon"/> 
+                    //     <div class="Icon">
+                    //         <img class="likedIcon" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Heart_coraz%C3%B3n.svg" alt="likedIcon"/>
+                    //     </div>
+                    // <div>  
 
 // MODAL
-
-
-
 function onClick (event) {
-        const target = event.target;
+    const target = event.target;
     overlay[0].classList.toggle('hidden');
     descriptionParagraph[0].innerHTML = target.value; 
 }

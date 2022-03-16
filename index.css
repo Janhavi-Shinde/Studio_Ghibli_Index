@@ -10,9 +10,7 @@ h1 {
     width: auto;
 }
 
-
 .overlay {
-   
     width: 700px;
     height: 500px;
     margin:auto;
@@ -88,7 +86,28 @@ h1 {
 }
 
 
+/* .Icon { 
+    height: 60px;
+    width: 60px;
+    position: absolute;
+}
+
+#likeIcon{
+    height: 45px;
+    width: 45px;
+    position: absolute;
+    z-index: 1;
+}
+.likedIcon{
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    z-index: 3
+    /* display:none;  */ 
+
+
 .box { 
+
     margin-top: 20px;
     border: #0a0000;
     border: 5em;
