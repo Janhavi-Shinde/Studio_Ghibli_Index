@@ -46,6 +46,17 @@ h1 {
     max-width: 80px;
     }
     
+
+#containerForHeartIcon { 
+    height: 30px;
+    max-width:30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+i {
+    transform:translate(50%, 50%);
+    font-size: 1rem;
+}
 /* YOU CAN IGNORE THIS */
 #wrapper {
     margin: 0 auto;

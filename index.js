@@ -82,7 +82,10 @@ const searchResultFilms = (films) => {
                 	<h2>${films.title}</h2>
                     <h4>Directed by ${films.director}</h4> 
                     <img class="filmPoster" src="${films.image}" />
-                    <button class="showModalBtn" onclick="onClick(event)" value="${films.description}"> Description </button>                          
+                    <button class="showModalBtn" onclick="onClick(event)" value="${films.description}"> Description </button>       
+                    <div id="containerForHeartIcon">
+                        <i id="heartIcon" class="fa-regular fa-heart"> </i>
+                    </div>                   
             </li>`;
         })
         .join(''); 
