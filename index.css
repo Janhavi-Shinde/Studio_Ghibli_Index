@@ -1,6 +1,14 @@
+body {
+    font-family: sans-serif;
+    background-color: cadetblue;
+    margin:0;
+}
+
 h1 {
-    color: pink;
+    color:pink;
     text-align: center;
+    font-size: 60px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 
@@ -22,6 +30,7 @@ h1 {
     /* makes sure modal is ontop of everything in the website */
     z-index: 9999; 
     background-color: rgba(0,0,0,0.5);
+    
 
 }
 .hidden {
@@ -39,23 +48,55 @@ h1 {
     bottom: 0;
     left:0;
     right:0;
+    padding-left: 10px;
+    padding-top: 10px;
+    
+}
+.modal > p {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+.modal >h4{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
+    text-align: center;
+
 }
 
 .showModalBtn { 
-    height: 20px;
+    height: 30px;
     max-width: 80px;
+    color: cadetblue;
+    background-color: powderblue;
+    border: none;
+    border-radius: 25px;
+    border-color: pink;
+
     }
     
+.closeModalBtn {
+  height: 30px;
+    max-width: 80px;
+    color: cadetblue;
+    background-color: powderblue;
+    border: none;
+    border-radius: 25px;
+    border-color: pink;   
+}
 
 #containerForHeartIcon { 
     height: 30px;
     max-width:30px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background-color: #fff;
 }
 
 i {
     transform:translate(50%, 50%);
     font-size: 1rem;
+}
+
+i:hover { 
+    color: red;
+    transition: .4s;
 }
 /* YOU CAN IGNORE THIS */
 #wrapper {
@@ -90,31 +131,39 @@ i {
     background-color: #eaeaea;
     border-radius: 3px;
     padding: 10px 20px;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     grid-template-areas:
-        'title image';
+        'title liker'
+        'director poster'
+        'description poster';
     text-align: left;
 }
 
-
-/* .Icon { 
-    height: 60px;
-    width: 60px;
-    position: absolute;
+.films-list > h2 {
+    grid-area: title;
+     margin-bottom: 0px;
+}
+.films-list > #containerForHeartIcon{
+    grid-area: liker;
+    transform: translate(400%);
+}
+.films-list > h4 {
+    grid-area: director;
+}
+.films-list > .showModalButton {
+    grid-area: description;
+    
+}
+.films-list > img {
+    max-height: 160px;
+    grid-area: poster;
+    transform: translate(20%);
+    width: 120px;
+    height: 160px;
 }
 
-#likeIcon{
-    height: 45px;
-    width: 45px;
-    position: absolute;
-    z-index: 1;
-}
-.likedIcon{
-    height: 50px;
-    width: 50px;
-    position: absolute;
-    z-index: 3
-    /* display:none;  */ 
+
 
 
 .box { 
@@ -148,36 +197,19 @@ footer {
 }
 
 #searchBar {
-    width: 100%;
-    height: 32px;
+    width: 98%;
+    height: 30px;
     border-radius: 3px;
     border: 1px solid #eaeaea;
     padding: 5px 10px;
     font-size: 12px;
 }
 
-body {
-    font-family: sans-serif;
-    background-color: cadetblue;
-    margin:0;
-}
 
 
 h1 {
     color: #eee;
     margin-bottom: 30px;
-}
-
-
-
-.films-list > h2 {
-    grid-area: name;
-    margin-bottom: 0px;
-}
-
-.films-list > img {
-    max-height: 100px;
-    grid-area: image;
 }
 
 

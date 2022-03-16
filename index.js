@@ -10,7 +10,9 @@ const showModalBtn = document.getElementsByClassName('showModalBtn');
 const closeModalBtn = document.getElementsByClassName('closeModalBtn');
 const descriptionParagraph = document.getElementsByClassName('descriptionParagraph');
 const backToTop = document.querySelector('footer');
-const likedIcon = document.getElementsByClassName('.likedIcon');
+
+
+
 let state;
 // let filmNames;
 
@@ -24,6 +26,7 @@ async function fetchAPIdata() {
         
         boxedFilms();
         searchResultFilms(state);
+        
         // bannerArrayFunction(state);
                                 // ?unnecessary// 
                                     	        // retrievingBanners(state);
@@ -83,8 +86,8 @@ const searchResultFilms = (films) => {
                     <h4>Directed by ${films.director}</h4> 
                     <img class="filmPoster" src="${films.image}" />
                     <button class="showModalBtn" onclick="onClick(event)" value="${films.description}"> Description </button>       
-                    <div id="containerForHeartIcon">
-                        <i id="heartIcon" class="fa-regular fa-heart"> </i>
+                    <div id="containerForHeartIcon" >
+                        <i id="heartIcon"  class="fa-regular fa-heart"> </i>
                     </div>                   
             </li>`;
         })
@@ -92,17 +95,30 @@ const searchResultFilms = (films) => {
        filmList.innerHTML = htmlString;
 };
 
-//Like Icon
-// likedIcon.addEventListener("click", (e)=>{ 
-// console.log(e.target);
-// likedIcon[0].classList.toggle('hidden');}
-// )
 
-// <div class="Icon"> <img id="likeIcon" src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Love_or_Heart_transparent.png" alt= "likeIcon"/> 
-                    //     <div class="Icon">
-                    //         <img class="likedIcon" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Heart_coraz%C3%B3n.svg" alt="likedIcon"/>
-                    //     </div>
-                    // <div>  
+const containerForHeartIcon = document.getElementById('containerForHeartIcon');
+const heartIcon = document.getElementById('heartIcon');
+
+// function toggle() {
+//         if (heartIcon.classList.contains("fa-regular fa-heart")) {
+//         heartIcon.classList.remove('fa-regular fa-heart');
+//         heartIcon.classList.add('fa-solid fa-heart');
+//     } else {
+//         heartIcon.classList.remove('fa-solid fa-heart');
+//         heartIcon.classList.add('fa-regular fa-heart');
+//     } 
+// }
+
+// function toggle() { 
+//     containerForHeartIcon.style.backgroundColor = '#df3e3e'
+// }
+
+
+
+
+
+
+
 
 // MODAL
 function onClick (event) {
@@ -126,7 +142,9 @@ backToTop.addEventListener("click", ()=> {
     document.documentElement.scrollTop = 0;
 })
 
-
+containerForHeartIcon.addEventListener("click", () => {
+    containerForHeartIcon.style.backgroundColor = '#df3e3e'
+})
 
 
 
