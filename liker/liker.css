@@ -1,0 +1,26 @@
+i { 
+    font-size: 5rem;
+    
+} 
+
+
+#likerContainer {
+    position: absolute;
+    left:50%;
+    right: 50%;
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    ;
+}
+
+i:hover {
+color:red;
+transition:.4s;
+}
+.fa-solid{
+    color:red;
+    transition:.4s;
+}
+
+
