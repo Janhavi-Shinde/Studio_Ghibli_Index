@@ -4,11 +4,11 @@ const logo = document.getElementById('logo');
 const searchBar = document.getElementById('searchBar');
 const filmPoster = document.getElementsByClassName('filmPoster');
 const buttons = document.getElementsByClassName('carousel-button');
-const bannerList = document.getElementsByTagName('bannerList');
+const bannerList = document.getElementById('bannerList');
 const overlay = document.getElementsByClassName('overlay');
 const showModalBtn = document.getElementsByClassName('showModalBtn');
 const closeModalBtn = document.getElementsByClassName('closeModalBtn');
-const descriptionParagraph = document.getElementsByClassName('descriptionParagraph');
+const descriptionParagraph = document.getElementById('descriptionParagraph');
 const backToTop = document.querySelector('footer');
 
 
@@ -27,7 +27,8 @@ async function fetchAPIdata() {
         boxedFilms();
         searchResultFilms(state);
 
-        // bannerArrayFunction(state);
+        console.log(bannerArrayFunction(state)); 
+        loop(bannerArrayFunction);
         // ?unnecessary// 
         // retrievingBanners(state);
         // ?unnecessary// 
@@ -65,7 +66,7 @@ function boxedFilms() {
 
 // EVENT LISTENER
 searchBar.addEventListener("keydown", (e) => {
-    // console.log(e.target.value);
+    console.log(e.target.value);
     const searchString = e.target.value.toLowerCase();
     const filteredTitles = state.filter((state) => {
         return (state.title.toLowerCase().includes(searchString) ||
@@ -96,13 +97,11 @@ const searchResultFilms = (films) => {
     filmList.innerHTML = htmlString;
 };
 
-
-const containerForHeartIcon = document.querySelector('#containerForHeartIcon');
-const heartIcon = document.getElementById('heartIcon');
+//Like Button
 
 function toggler(event) {
     const target = event.target;
-    console.log(target)
+    // console.log(target)
     if (target.classList.contains("fa-regular")) {
         target.classList.replace('fa-regular', 'fa-solid');
 
@@ -111,20 +110,12 @@ function toggler(event) {
     }
 }
 
-// function toggle() { 
-//     containerForHeartIcon.style.backgroundColor = '#df3e3e'
-// }
-
-
-
-
-
 
 // MODAL
 function onClick(event) {
     const target = event.target;
     overlay[0].classList.toggle('hidden');
-    descriptionParagraph[0].innerHTML = target.value;
+    descriptionParagraph.innerHTML = target.value;
 }
 
 
@@ -143,40 +134,6 @@ backToTop.addEventListener("click", () => {
 })
 
 
-
-
-containerForHeartIcon.addEventListener("click", () => {
-    containerForHeartIcon.style.backgroundColor = '#df3e3e'
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// buttons.forEach(button => {
-//     button.addEventListener("click", ()=>{
-//         //all u want to do here is just swap to the next image
-//         const offset = 
-//     })
-// })
 const bannerArrayFunction = (picture) => {
     const listOfBannerImages = picture
         .map((picture) => {
@@ -185,12 +142,18 @@ const bannerArrayFunction = (picture) => {
                 <img src="${picture.movie_banner}" alt="${picture.title}"/>     
             </li>`;
         })
-        .join('');
-    bannerList.innerHTML = listOfBannerImages;
+          return listOfBannerImages; 
+
+    //   bannerList.innerHTML = listOfBannerImages;
     //consider adding a after/before pseudoElement to have the name of the respective movie, showing up in the corner?//
-    console.log(listOfBannerImages)
+    // console.log(listOfBannerImages)
 }; //listOfBannerImages contains the (joined)array of banner images in the list tags
 
+function loop (listOfBannerImages) {
+    for (let i= 0; i < listOfBannerImages.length; i++) { 
+             
+    }
+}
 
 
 

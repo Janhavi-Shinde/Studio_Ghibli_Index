@@ -20,6 +20,15 @@ function liker (){
 
 
 
+
+
+
+
+
+
+
+
+
 // function liker (){
 //     if(likerContainer.style.backgroundColor === '#fff'){ 
 //         likerContainer.style.backgroundColor === '#ff0000'  

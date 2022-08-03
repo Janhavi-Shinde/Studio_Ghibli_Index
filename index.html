@@ -1,60 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="index.js" defer> </script>
     <script src="https://kit.fontawesome.com/e5cc9a0ce7.js" crossorigin="anonymous" defer> </script>
-    
-    <link rel='stylesheet' type="text/css" href= index.css />
+
+    <link rel='stylesheet' type="text/css" href=index.css />
     <title>Studio Ghibli Movies</title>
 </head>
+
 <body>
     <div class="overlay hidden">
-        <div class="modal" >
+        <div class="modal">
             <h4>Description:</h4>
-            <p class="descriptionParagraph"></p>
-            <button class="closeModalBtn" >Close </button>
+            <p id="descriptionParagraph"></p>
+            <button class="closeModalBtn">Close </button>
         </div>
     </div>
 
     <header>
         <h1>Studio Ghibli Movies Index</h1>
-        <div id= "logo" >
-            <img src="https://raw.githubusercontent.com/taniarascia/sandbox/master/ghibli/logo.png"/>
+        <div id="logo">
+            <img src="https://raw.githubusercontent.com/taniarascia/sandbox/master/ghibli/logo.png" />
 
         </div>
     </header>
-    <main> 
-           
-        <div class="container-for-searchBar">
-            <div id="searchWrapper">
-            <input
-                type="text"
-                name="searchBar"
-                id="searchBar"
-                placeholder="Search for a film title or movies by a certain director!"
-            />
-        </div>
-        <ul id="film-list"></ul>
-
-        <!-- YOU CAN IGNORE THIS PART -->
-        <div id="wrapper">
-            <div id="films">
-        </div>
-        <!-- ........................ -->
- <!-- <section aria-label="Movie Banner Carousel">
+    <main>
+        <section aria-label="Movie Banner Carousel">
             <div class="carousel">
                 <ul id="bannerList"></ul>
                 <button class="carousel-button prev">&#8656;</button>
                 <button class="carousel-button next">&#8658;</button>
-                
+
             </div>
-        
-        </section> -->
-        
+
+        </section>
+
+        <div class="container-for-searchBar">
+            <div id="searchWrapper">
+                <input type="text" name="searchBar" id="searchBar"
+                    placeholder="Search for a film title or movies by a certain director!" />
+            </div>
+            <ul id="film-list"></ul>
+
+            <!-- YOU CAN IGNORE THIS PART -->
+            <div id="wrapper">
+                <div id="films">
+                </div>
+                <!-- ........................ -->
+              
     </main>
-    <footer>&copy Janhavi Shinde 2022  || ^^(Back to Top)</footer>
+    <footer>&copy Janhavi Shinde 2022 || ^^(Back to Top)</footer>
 </body>
+
 </html>
