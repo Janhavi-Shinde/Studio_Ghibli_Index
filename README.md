@@ -1,6 +1,6 @@
 # Studio_Ghibli_Index
 Link: https://janhavi-shinde.github.io/Studio_Ghibli_Index/ 
-
+NOTE: The public Studio Ghibli API that I'm using is current undergoing maintenance/ having some issues, hence why the results aren't being generated. I appreciate your patience as this issue gets fixed, as it is out my hands. I am currently working on some replacment data so that this application can still be used and also working on a code walkthrough which you will be able to view in the meantime, while this public API gets back up :) 
 
 This is a JavaScript application created using the Studio Ghibli API. 
 
