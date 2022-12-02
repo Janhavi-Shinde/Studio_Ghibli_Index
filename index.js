@@ -13,6 +13,10 @@ const backToTop = document.querySelector('footer');
 
 
 
+// Alert: Unavailable API Disclaimer:
+
+alert("Hello Viewer! \nThe Studio Ghibli API that I used for this application is currently unavailable. While we wait for the API creator to fix up the bugs and get it back up and running, please do check out my code walkthrough for this project instead: https://flip.com/s/ccBeiiFHW9tp. \n \nIt's no Howl's Moving Castle, but I do explain how I made this application and what it looks like when the API works. I look forward to sharing this application with you soon! :)");
+ 
 let state;
 // let filmNames;
 
@@ -62,7 +66,7 @@ function boxedFilms() {
     })
 }
 
-// SEARCH BAR: 
+                      // SEARCH BAR: 
 
 // EVENT LISTENER
 searchBar.addEventListener("keydown", (e) => {
