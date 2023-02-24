@@ -24,7 +24,7 @@ let state;
 //FETCHING API DATA
 async function fetchAPIdata() {
     try {
-        const response = await fetch("https://ghibliapi.herokuapp.com/films")
+        const response = await fetch("https://newghibliapi.herokuapp.com/films")
         const data = await response.json();
         state = data
 
